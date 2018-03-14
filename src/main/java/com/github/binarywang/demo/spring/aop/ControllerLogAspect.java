@@ -34,7 +34,7 @@ public class ControllerLogAspect {
 
     @Before("inController()")
     public void writeBeforeLog(JoinPoint jp) {
-        
+
         this.debugInController(jp, "Start");
     }
 
