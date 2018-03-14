@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class ControllerLogAspect {
+    
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Pointcut("within(com.github.binarywang.demo.spring..*.controller..*)")
