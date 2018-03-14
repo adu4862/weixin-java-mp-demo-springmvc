@@ -26,6 +26,7 @@ public class ControllerLogAspect {
 
     @Pointcut("within(com.github.binarywang.demo.spring..*.controller..*)")
     public void inController() {
+        logger.debug("hello world");
     }
 
     @Pointcut("execution(public * com.github.binarywang.demo.spring..*.controller..*.*(..))")
