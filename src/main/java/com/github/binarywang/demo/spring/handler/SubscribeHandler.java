@@ -61,11 +61,11 @@ public class SubscribeHandler extends AbstractHandler {
               "\n" +
               "⑤ 自助搜索，直接回复影视剧名称或者演员名称即可！\n" +
               "\n" +
-              "⑥ 手机/电脑浏览器访问网址 http://www.bajiedianying.com\n" +
+//              "⑥ 手机/电脑浏览器访问网址 http://www.bajiedianying.com\n" +
               "\n" +
-              "⑦ 点击公众号右上角，置顶公众号，追剧从此更方便！\n" +
+              "⑥ 点击公众号右上角，置顶公众号，追剧从此更方便！\n" +
               "\n" +
-              "⑧ 没找到剧集、无法播放，可加入问题反馈QQ群！一切问题群里反馈。群号：710211105", wxMessage, weixinService);
+              "⑦ 没找到剧集、无法播放，可加入问题反馈QQ群！一切问题群里反馈。群号：710211105", wxMessage, weixinService);
     } catch (Exception e) {
       this.logger.error(e.getMessage(), e);
     }
