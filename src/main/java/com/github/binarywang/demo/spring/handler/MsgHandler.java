@@ -62,7 +62,7 @@ public class MsgHandler extends AbstractHandler {
         String sql;
 
         String url = "jdbc:mysql://localhost:3306/Movie_db?"
-                + "user=root&password=root&useUnicode=true&characterEncoding=gbk";
+                + "user=yanglong&password=123456&useUnicode=true&characterEncoding=gbk";
 
         try {
             // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
@@ -100,7 +100,7 @@ public class MsgHandler extends AbstractHandler {
         // 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
         // 下面语句之前就要先创建javademo数据库
         String url = "jdbc:mysql://localhost:3306/Movie_db?"
-                + "user=root&password=root&useUnicode=true&characterEncoding=gbk";
+                + "user=yanglong&password=123456&useUnicode=true&characterEncoding=gbk";
 
         try {
             // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
@@ -181,7 +181,7 @@ public class MsgHandler extends AbstractHandler {
         // 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
         // 下面语句之前就要先创建javademo数据库
         String url = "jdbc:mysql://localhost:3306/Movie_db?"
-                + "user=root&password=root&useUnicode=true&characterEncoding=gbk";
+                + "user=yanglong&password=123456&useUnicode=true&characterEncoding=gbk";
 
         try {
             // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
