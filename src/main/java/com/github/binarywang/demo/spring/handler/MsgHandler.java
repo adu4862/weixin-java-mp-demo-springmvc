@@ -10,6 +10,7 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
+import java.io.*;
 import java.sql.*;
 import java.util.Map;
 import java.util.Random;
@@ -51,9 +52,37 @@ public class MsgHandler extends AbstractHandler {
 //        }
 
 //        String content = "回复信息内容";
-        String content = searchMovie(""+wxMessage.getContent()+"");
+        String content = searchMovie("" + wxMessage.getContent() + "");
+
+        try {
+            String head = "<!DOCTYPE html>\n" +
+                    "<html lang=\"en\">\n" +
+                    "<head>\n" +
+                    "    <meta charset=\"UTF-8\">\n" +
+                    "    <title>Title</title>\n" +
+                    "</head>\n" +
+                    "<body>\n";
+            String end = "</body>\n" +
+                    "</html>";
+            writeToHTML(head+content+end);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return new TextBuilder().build(content, wxMessage, weixinService);
 
+    }
+
+    private void writeToHTML(String str) throws Exception {
+        File f = new File(MsgHandler.class.getClassLoader().getResource("test.html").getPath());
+        String absolutePath = f.getAbsolutePath();
+        System.out.print(absolutePath);
+        OutputStream out=new FileOutputStream(f,true);//追加内容
+        byte[] b=str.getBytes();
+        for(int i=0;i<b.length;i++){
+            out.write(b[i]);
+        }
+        out.close();
     }
 
 
@@ -124,16 +153,16 @@ public class MsgHandler extends AbstractHandler {
 //				result = stmt.executeUpdate(sql);
 //      sql = "insert into tb_movie(code,detail,title) values('"+bean.getCode()+"','"+bean.getDetail()+"','"+bean.getTitle()+"')";
 //      int result = stmt.executeUpdate(sql);
-            StringBuffer sbSql= new StringBuffer();
+            StringBuffer sbSql = new StringBuffer();
             sbSql.append("select * from tb_movie where  ");
             int length = movieName.length();
             for (int i = 0; i < length; i++) {
                 char c = movieName.charAt(i);
                 if (i != 0) {
-                    sbSql.append("and title like '%"+c+"%'");
+                    sbSql.append("and title like '%" + c + "%'");
                 } else {
 
-                    sbSql.append("title like '%"+c+"%'");
+                    sbSql.append("title like '%" + c + "%'");
                 }
             }
 //            sql = "select * from tb_movie where title like '" + movieName + "%'";
@@ -144,6 +173,8 @@ public class MsgHandler extends AbstractHandler {
                 System.out
                         .println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));// 入如果返回的是int类型可以用getInt()
                 s = rs.getString(3) + "\n" + rs.getString(2);
+
+
                 if (s.contains("http://pan.baidu.com")) {
                     return s;
                 }
