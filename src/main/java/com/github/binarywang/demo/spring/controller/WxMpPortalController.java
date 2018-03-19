@@ -49,10 +49,12 @@ public class WxMpPortalController {
 
   @ResponseBody
   @PostMapping(produces = "application/xml; charset=UTF-8")
-  public String post(@RequestBody String requestBody, @RequestParam("signature") String signature,
-      @RequestParam(name = "encrypt_type", required = false) String encType,
-      @RequestParam(name = "msg_signature", required = false) String msgSignature,
-      @RequestParam("timestamp") String timestamp, @RequestParam("nonce") String nonce) {
+  public String post(@RequestBody String requestBody,
+                     @RequestParam("signature") String signature,
+                     @RequestParam(name = "encrypt_type", required = false) String encType,
+                     @RequestParam(name = "msg_signature", required = false) String msgSignature,
+                     @RequestParam("timestamp") String timestamp,
+                     @RequestParam("nonce") String nonce) {
     this.logger.info(
         "\n接收微信请求：[signature=[{}], encType=[{}], msgSignature=[{}],"
             + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",

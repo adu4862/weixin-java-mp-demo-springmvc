@@ -54,20 +54,20 @@ public class MsgHandler extends AbstractHandler {
 //        String content = "回复信息内容";
         String content = searchMovie("" + wxMessage.getContent() + "");
 
-        try {
-            String head = "<!DOCTYPE html>\n" +
-                    "<html lang=\"en\">\n" +
-                    "<head>\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "    <title>Title</title>\n" +
-                    "</head>\n" +
-                    "<body>\n";
-            String end = "</body>\n" +
-                    "</html>";
-            writeToHTML(head+content+end);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            String head = "<!DOCTYPE html>\n" +
+//                    "<html lang=\"en\">\n" +
+//                    "<head>\n" +
+//                    "    <meta charset=\"UTF-8\">\n" +
+//                    "    <title>Title</title>\n" +
+//                    "</head>\n" +
+//                    "<body>\n";
+//            String end = "</body>\n" +
+//                    "</html>";
+//            writeToHTML(head+content+end);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         return new TextBuilder().build(content, wxMessage, weixinService);
 
@@ -181,6 +181,7 @@ public class MsgHandler extends AbstractHandler {
             }
 
             if ("sorry！没有找到该影剧！".equals(s)) {
+
                 sql = "insert into tb_error_name(name) values('" + movieName + "')";
                 int result = stmt.executeUpdate(sql);
             }

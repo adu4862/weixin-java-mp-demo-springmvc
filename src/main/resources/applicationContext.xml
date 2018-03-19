@@ -12,5 +12,12 @@
   <import resource="classpath*:spring-service-bean.xml" />
 
   <util:properties id="wxProperties" location="classpath:/wx.properties" />
+    <!--jsp视图解析器 -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="order" value="1" />
+    </bean>
 
 </beans>
