@@ -7,8 +7,7 @@
     <title>home</title>
 </head>
 <body>
-<h2>spring mvc ÊµÀı</h2>
-detail:${detail }
+${detail }
 
 
 

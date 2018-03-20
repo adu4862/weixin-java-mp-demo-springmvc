@@ -19,12 +19,16 @@ public class WebOutputController {
     public ModelAndView  get(@RequestParam(name = "code", required = false) String code) {
         this.logger.info("\n接收到消息：[{}]", code);
         String s = searchMovie(code);
-//        Pattern pattern = Pattern.compile("\\s*|\t|\r|\n"); //去掉空格符合换行符
-//        Matcher matcher = pattern.matcher(s);
-//        String result = matcher.replaceAll("");
+        Pattern pattern = Pattern.compile("\\\\"); //去掉空格符合换行符
+        Matcher matcher = pattern.matcher(s);
+        String result = matcher.replaceAll("");
+        result = result.replaceAll("n ", "");
+        result = result.replaceAll(" n", "");
+        result = result.replaceAll("n<", "<");
+//        82257
         ModelAndView mav = new ModelAndView("Index");
         //将参数返回给页面
-        mav.addObject("detail",s);
+        mav.addObject("detail",result);
         return mav;
     }
 
