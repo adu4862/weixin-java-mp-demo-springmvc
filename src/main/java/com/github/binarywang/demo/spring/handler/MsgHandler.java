@@ -32,57 +32,78 @@ public class MsgHandler extends AbstractHandler {
             //TODO 可以选择将消息保存到本地
         }
         if ("随机".equals(wxMessage.getContent()) || "1".equals(wxMessage.getContent())) {
-            int max = 35747;
-            int min = 30001;
-            Random random = new Random();
 
-            int randomX = random.nextInt(max) % (max - min + 1) + min;
-            String movieRandom = getMovieRandom(randomX);
+            String randomX = getRandomNum();
 
-            return new TextBuilder().build(movieRandom, wxMessage, weixinService);
+//            String movieRandom = getMovieRandom(randomX);
+            String content = "http://111.231.200.248:8080/wechat/web?code=" + randomX + "";
+
+            return new TextBuilder().build(content, wxMessage, weixinService);
         }
 
-
-        //当用户输入关键词如“你好”，“客服”等，并且有客服在线时，把消息转发给在线客服
-//        if (StringUtils.startsWithAny(wxMessage.getContent(), "你好", "客服")
-//                && weixinService.hasKefuOnline()) {
-//            return WxMpXmlOutMessage
-//                    .TRANSFER_CUSTOMER_SERVICE().fromUser(wxMessage.getToUser())
-//                    .toUser(wxMessage.getFromUser()).build();
-//        }
-
-//        String content = "回复信息内容";
         String content = searchMovie("" + wxMessage.getContent() + "");
-
-//        try {
-//            String head = "<!DOCTYPE html>\n" +
-//                    "<html lang=\"en\">\n" +
-//                    "<head>\n" +
-//                    "    <meta charset=\"UTF-8\">\n" +
-//                    "    <title>Title</title>\n" +
-//                    "</head>\n" +
-//                    "<body>\n";
-//            String end = "</body>\n" +
-//                    "</html>";
-//            writeToHTML(head+content+end);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        content = "http://111.231.200.248:8080/wechat/web?code=" + content + "";
 
         return new TextBuilder().build(content, wxMessage, weixinService);
 
     }
 
-    private void writeToHTML(String str) throws Exception {
-        File f = new File(MsgHandler.class.getClassLoader().getResource("test.html").getPath());
-        String absolutePath = f.getAbsolutePath();
-        System.out.print(absolutePath);
-        OutputStream out=new FileOutputStream(f,true);//追加内容
-        byte[] b=str.getBytes();
-        for(int i=0;i<b.length;i++){
-            out.write(b[i]);
+    private String getRandomNum() {
+//        int max = 83400;
+//        int min = 1;
+//        Random random = new Random();
+//
+//        int randomX = random.nextInt(max) % (max - min + 1) + min;
+        Connection conn = null;
+        String sql;
+
+        String url = "jdbc:mysql://localhost:3306/Movie_db?"
+                + "user=yanglong&password=123456&useUnicode=true&characterEncoding=gbk";
+
+        try {
+            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
+            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
+            Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
+
+
+            System.out.println("成功加载MySQL驱动程序");
+            conn = DriverManager.getConnection(url);
+            Statement stmt = conn.createStatement();
+
+//            sql = "SELECT * FROM tb_movie WHERE code >= ((SELECT MAX(code) FROM tb_movie)-(SELECT MIN(code) FROM tb_movie)) * RAND() + (SELECT MIN(code) FROM tb_movie)  LIMIT 1";
+            sql = "select * from tb_movie order by rand() limit 1";
+            ResultSet rs = stmt.executeQuery(sql);
+            int rowcount = 0;
+            if (rs.last()) {
+                rowcount = rs.getRow();
+                rs.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
+
+            }
+            while (rs.next()) {
+                System.out
+                        .println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));// 入如果返回的是int类型可以用getInt()
+                String s = rs.getString(3) + "\n" + rs.getString(2);
+                System.out.println("code:" + s);
+                return rs.getString(1);
+
+
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("MySQL操作错误");
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        out.close();
+        return "";
+
     }
 
 
@@ -172,12 +193,13 @@ public class MsgHandler extends AbstractHandler {
             while (rs.next()) {
                 System.out
                         .println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));// 入如果返回的是int类型可以用getInt()
-                s = rs.getString(3) + "\n" + rs.getString(2);
+//                s = rs.getString(3) + "\n" + rs.getString(2);
+                s = rs.getString(1);
+//                return s;
 
-
-                if (s.contains("http://pan.baidu.com")) {
-                    return s;
-                }
+//                if (s.contains("http://pan.baidu.com")) {
+//                    return s;
+//                }
             }
 
             if ("sorry！没有找到该影剧！".equals(s)) {

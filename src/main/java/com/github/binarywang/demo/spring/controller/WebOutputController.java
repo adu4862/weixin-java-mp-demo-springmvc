@@ -86,7 +86,7 @@ public class WebOutputController {
                 s = rs.getString(3) + "\n" + rs.getString(2);
 
                 if (rs.getString(2)!=null) {
-                    return rs.getString(2);
+                    return s;
                 }
             }
 

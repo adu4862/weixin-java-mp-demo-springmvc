@@ -2,20 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=250, initial-scale=1.5, user-scalable=no">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            background: #000;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .block {
+            height: 50px;
+            border-bottom: 4px solid #ccc;
+        }
+
+        #first  { width: 100px; }
+        #second { width: 200px; }
+        #third  { width: 300px; }
+        #fourth { width: 320px; }
+        #log { font-size: 16px; }
+    </style>
 </head>
 <body>
-<label class="remark"></label> \n<a href="magnet:?xt=urn:btih:16C37BC070FD116AF66C6684C61CD7B8CD021F1C"> <img
-        src="http://i4.bvimg.com/588755/0d8eb6345e315d8b.gif"> 磁力：点击下载 </a> \n
-<div class="labelname">\n 720p\n</div>
-\n
-<div class="labelname">\n 有字幕\n</div>
-\n<label class="remark"></label> \n<a href="https://pan.baidu.com/s/1tQ52cWmlQDGGtw0pLUgNIw"> <img
-        src="http://i1.fuimg.com/588755/7dcc4108ce360c2a.png"> 百度网盘：点击下载 </a> \n
-<div class="fetchcode">\n 提取码:9yyn\n</div>
-\n
-<div class=\"labelname\">\n 有字幕\n</div>
+<div id="first" class="block">100px</div>
+<div id="second" class="block">200px</div>
+<div id="third" class="block">300px</div>
+<div id="fourth" class="block">320px</div>
+<div id="log"></div>
+<script>
+    function log(content) {
+        var logContainer = document.getElementById('log');
+        var p = document.createElement('p');
+        p.textContent = content;
+        logContainer.appendChild(p);
+    }
 
-
+    log('body width:' + document.body.clientWidth)
+    log(document.querySelector('[name="viewport"]').content)
+</script>
 </body>
 </html>
