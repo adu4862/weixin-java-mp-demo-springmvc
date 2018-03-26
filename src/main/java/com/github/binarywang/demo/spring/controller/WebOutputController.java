@@ -56,27 +56,9 @@ public class WebOutputController {
             conn = DriverManager.getConnection(url);
             // Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
             Statement stmt = conn.createStatement();
-//			sql = "create table student(NO char(20),name varchar(20),primary key(NO))";
-//			int result = stmt.executeUpdate(sql);// executeUpdate语句会返回一个受影响的行数，如果返回-1就没有成功
-//			if (result != -1) {
-//				System.out.println("创建数据表成功");
-//				sql = "insert into student(NO,name) values('2012001','陶伟基')";
-//				result = stmt.executeUpdate(sql);
-//      sql = "insert into tb_movie(code,detail,title) values('"+bean.getCode()+"','"+bean.getDetail()+"','"+bean.getTitle()+"')";
-//      int result = stmt.executeUpdate(sql);
+
             StringBuffer sbSql = new StringBuffer("select * from tb_movie where  code ="+code);
-//            sbSql.append("select * from tb_movie where  ");
-//            int length = movieName.length();
-//            for (int i = 0; i < length; i++) {
-//                char c = movieName.charAt(i);
-//                if (i != 0) {
-//                    sbSql.append("and title like '%" + c + "%'");
-//                } else {
-//
-//                    sbSql.append("title like '%" + c + "%'");
-//                }
-//            }
-//            sql = "select * from tb_movie where title like '" + movieName + "%'";
+
             ResultSet rs = stmt.executeQuery(sbSql.toString());// executeQuery会返回结果的集合，否则返回空值
             System.out.println("code\t地址\t标题");
             String s = "sorry！没有找到该影剧！";
@@ -89,11 +71,6 @@ public class WebOutputController {
                     return s;
                 }
             }
-
-//            if ("sorry！没有找到该影剧！".equals(s)) {
-//                sql = "insert into tb_error_name(name) values('" + movieName + "')";
-//                int result = stmt.executeUpdate(sql);
-//            }
 
             return s;
 //			}
