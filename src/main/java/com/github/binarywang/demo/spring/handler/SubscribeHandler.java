@@ -47,7 +47,7 @@ public class SubscribeHandler extends AbstractHandler {
         }
 
         try {
-            return new TextBuilder().build("你好，欢迎关注长沙资讯号!\n" +
+            return new TextBuilder().build("谢谢dalao的关注orz!!\n" +
                     "\n" +
                     "① 回复影视剧名称！自助搜索!\n" +
                     "\n" +

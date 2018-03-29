@@ -7,13 +7,10 @@ import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
 import java.sql.*;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * @author Binary Wang
@@ -21,6 +18,7 @@ import java.util.Random;
 @Component
 public class MsgHandler extends AbstractHandler {
 
+    private static String note_message = "sorry！没有找到该影剧！";
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage,
                                     Map<String, Object> context, WxMpService wxMpService,
@@ -34,15 +32,25 @@ public class MsgHandler extends AbstractHandler {
         if ("随机".equals(wxMessage.getContent()) || "1".equals(wxMessage.getContent())) {
 
             String randomX = getRandomNum();
+//            if (randomX.startsWith("3")) {
+//
+//            }
 
 //            String movieRandom = getMovieRandom(randomX);
-            String content = "http://111.231.200.248:8080/wechat/web?code=" + randomX + "";
+            String content = "http://www.changs1992.cn/wechat/web?code=" + randomX + "";
 
             return new TextBuilder().build(content, wxMessage, weixinService);
         }
 
         String content = searchMovie("" + wxMessage.getContent() + "");
-        content = "http://111.231.200.248:8080/wechat/web?code=" + content + "";
+        if (note_message.equals(content)) {
+            //没有找到影片,使用万能接口
+
+            content = "http://video.fastsoso.cn/search2?q=" + wxMessage.getContent();
+        } else {
+
+            content = "http://www.changs1992.cn/wechat/web?code=" + content + "";
+        }
 
         return new TextBuilder().build(content, wxMessage, weixinService);
 
@@ -189,7 +197,8 @@ public class MsgHandler extends AbstractHandler {
 //            sql = "select * from tb_movie where title like '" + movieName + "%'";
             ResultSet rs = stmt.executeQuery(sbSql.toString());// executeQuery会返回结果的集合，否则返回空值
             System.out.println("code\t地址\t标题");
-            String s = "sorry！没有找到该影剧！";
+
+            String s = note_message;
             while (rs.next()) {
                 System.out
                         .println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));// 入如果返回的是int类型可以用getInt()
@@ -201,8 +210,7 @@ public class MsgHandler extends AbstractHandler {
 //                    return s;
 //                }
             }
-
-            if ("sorry！没有找到该影剧！".equals(s)) {
+            if (note_message.equals(s)) {
 
                 sql = "insert into tb_error_name(name) values('" + movieName + "')";
                 int result = stmt.executeUpdate(sql);
