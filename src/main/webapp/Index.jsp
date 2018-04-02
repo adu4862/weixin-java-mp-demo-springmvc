@@ -9,6 +9,13 @@
     <title></title>
 </head>
 <body>
+<div >
+    <h3 >
+       Ó°ÊÓÃû: ${title }
+    </h3>
+
+</div>
+
 ${detail }
 
 
