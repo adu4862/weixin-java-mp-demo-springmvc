@@ -63,7 +63,7 @@ public class WebOutputController {
             // Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
             Statement stmt = conn.createStatement();
 
-            StringBuffer sbSql1 = new StringBuffer("select title from tb_movie2 where  code ="+code);
+            StringBuffer sbSql1 = new StringBuffer("select title from tb_movie2_copy where  code ="+code);
 
             ResultSet rs1 = stmt.executeQuery(sbSql1.toString());// executeQuery会返回结果的集合，否则返回空值
             System.out.println("标题");
@@ -75,7 +75,7 @@ public class WebOutputController {
 
             }
 
-            StringBuffer sbSql = new StringBuffer("select * from tb_movie_detail where  code ="+code);
+            StringBuffer sbSql = new StringBuffer("select * from tb_movie_detail2 where  code ="+code);
 
             ResultSet rs = stmt.executeQuery(sbSql.toString());// executeQuery会返回结果的集合，否则返回空值
             System.out.println("code\t地址");
@@ -133,7 +133,7 @@ public class WebOutputController {
             // Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
             Statement stmt = conn.createStatement();
 
-            StringBuffer sbSql = new StringBuffer("select * from tb_movie2 where  code ="+code);
+            StringBuffer sbSql = new StringBuffer("select * from tb_movie2_copy where  code ="+code);
 
             ResultSet rs = stmt.executeQuery(sbSql.toString());// executeQuery会返回结果的集合，否则返回空值
             System.out.println("code\t标题");

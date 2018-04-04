@@ -90,7 +90,7 @@ public class MsgHandler extends AbstractHandler {
             Statement stmt = conn.createStatement();
 
 //            sql = "SELECT * FROM tb_movie WHERE code >= ((SELECT MAX(code) FROM tb_movie)-(SELECT MIN(code) FROM tb_movie)) * RAND() + (SELECT MIN(code) FROM tb_movie)  LIMIT 1";
-            sql = "select code from tb_movie2 order by rand() limit 1";
+            sql = "select code from tb_movie2_copy order by rand() limit 1";
             ResultSet rs = stmt.executeQuery(sql);
             int rowcount = 0;
             if (rs.last()) {
@@ -186,7 +186,7 @@ public class MsgHandler extends AbstractHandler {
             // Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
             Statement stmt = conn.createStatement();
             StringBuffer sbSql = new StringBuffer();
-            sbSql.append("select code from tb_movie2 where ");
+            sbSql.append("select code from tb_movie2_copy where ");
             int length = movieName.length();
             for (int i = 0; i < length; i++) {
                 char c = movieName.charAt(i);
@@ -266,7 +266,7 @@ public class MsgHandler extends AbstractHandler {
 //				result = stmt.executeUpdate(sql);
 //      sql = "insert into tb_movie(code,detail,title) values('"+bean.getCode()+"','"+bean.getDetail()+"','"+bean.getTitle()+"')";
 //      int result = stmt.executeUpdate(sql);
-            sql = "select * from tb_movie2 WHERE code = " + randomX;
+            sql = "select * from tb_movie2_copy WHERE code = " + randomX;
             ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
             System.out.println("code\t地址\t标题");
             String s = "";
