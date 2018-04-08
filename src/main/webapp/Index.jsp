@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=250, initial-scale=1.5, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
     <title></title>
+
+    <%--<link rel="stylesheet" type="text/css" href="/c5_20171220.css" />--%>
+    <link rel="stylesheet" href="http://www.pniao.com/View/style/mov.css"  />
+
+
 </head>
 <body>
 <div >
@@ -15,6 +20,18 @@
     </h3>
 
 </div>
+
+
+<%--<table class="dataintable">--%>
+    <%--<tbody>--%>
+    <%--<tr>--%>
+        <%--<td>--%>
+           <%----%>
+        <%--</td>--%>
+
+    <%--</tr>--%>
+
+    <%--</tbody></table>--%>
 
 ${detail }
 
