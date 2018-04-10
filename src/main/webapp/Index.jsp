@@ -10,10 +10,47 @@
 
     <%--<link rel="stylesheet" type="text/css" href="/c5_20171220.css" />--%>
     <link rel="stylesheet" href="http://www.pniao.com/View/style/mov.css"  />
-
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1900874537947892",
+            enable_page_level_ads: true
+        });
+    </script>
 
 </head>
 <body>
+<div>
+    <h3 >
+        提示:
+    </h3>
+</div>
+<div>
+    磁力下载
+</div>
+<div >
+
+    1、直接点击，会出现弹出窗提醒下载。
+</div>
+<div>
+    2、PC端在链接处点击右键,
+</div>
+<div>
+    在弹出的菜单中-&gt;选择复制链接地址。
+</div>
+<div>
+    3、若是移动端长按链接,
+</div>
+<div>
+    出现弹出窗-&gt;选择复制链接地址
+</div>
+<div>
+    4、若是用迅雷下载失败，
+</div>
+<div >
+    可能该资源已被迅雷阻断，建议用115、utorrent下载
+
+</div>
 <div >
     <h3 >
        影视名: ${title }
