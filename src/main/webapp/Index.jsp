@@ -31,7 +31,7 @@
 
 
 <div class="mainBox movieFlag movieOne sizeMovieOne" id="movieFlag26462"
-     style="border: 0px; padding: 20px 5px 5px; width: 1409px;">
+     style="border: 0px; padding: 20px 5px 5px;">
 
     <div class="clear"></div>
     <div class="movInfoOuter">
@@ -46,7 +46,7 @@
     <div class="clear"></div>
     <div class="briefOuter">
         <div class="briefTitle">¼ò½é</div>
-        <div class="briefCnt">
+        <div >
             ${descb }
         </div>
     </div>
