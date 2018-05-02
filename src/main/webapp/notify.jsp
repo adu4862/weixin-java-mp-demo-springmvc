@@ -44,7 +44,7 @@
 		//编码要匹配 编码不一致中文会导致加密结果不一致
 		//参数合法处理业务
 		//request.getParameter("pay_no") 流水号
-		//request.getParameter("pay_id") 用户唯一标识
+//		request.getParameter("pay_id") 用户唯一标识
 		//request.getParameter("money") 付款金额
 		//request.getParameter("price") 提交的金额
 		out.print("ok");
