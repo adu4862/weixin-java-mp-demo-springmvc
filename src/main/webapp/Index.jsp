@@ -22,32 +22,32 @@
     <div class="mainContainer">
         <div class="mainBox movieFlag movieOne" id="movieFlag8121">
             <div class="midSoForm">
-                <div class="movieSoForm leftSoForm soFormWidth">
-                    <form method="get" id="soMovieForm" action="http://www.changs1992.cn/wechat/so">
-                        <a href="javascript:;"></a>
-                        <div class="left">
-                            <div class="leftInnner input">
-                                <input type="text" id="movieSoWord" name="name" value="" inColor="#666"
-                                       outColor="#aaa"/>
-                                <div class="soTipDiv" id="soTipDiv"></div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div id="exactlyBtn" class="btn menuBtn"><a href="javascript:;"></a></div>
-                            <div class="popMenu popStyle_2 exactlySoMenu">
-                                <div class="arrowBg"></div>
-                                <div class="inner">
-                                    <ul><a href="javascript:;" type="title_">标题</a></ul>
-                                    <ul><a href="javascript:;" type="actors">演员</a></ul>
-                                    <ul><a href="javascript:;" type="director">导演</a></ul>
-                                </div>
-                            </div>
-                            <div id="movieSoBtn" class="btn subBtn">
-                                <input type="submit" value="Submit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <%--<div class="movieSoForm leftSoForm soFormWidth">--%>
+                    <%--<form method="get" id="soMovieForm" action="http://www.changs1992.cn/wechat/so">--%>
+                        <%--<a href="javascript:;"></a>--%>
+                        <%--<div class="left">--%>
+                            <%--<div class="leftInnner input">--%>
+                                <%--<input type="text" id="movieSoWord" name="name" value="" inColor="#666"--%>
+                                       <%--outColor="#aaa"/>--%>
+                                <%--<div class="soTipDiv" id="soTipDiv"></div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="right">--%>
+                            <%--<div id="exactlyBtn" class="btn menuBtn"><a href="javascript:;"></a></div>--%>
+                            <%--<div class="popMenu popStyle_2 exactlySoMenu">--%>
+                                <%--<div class="arrowBg"></div>--%>
+                                <%--<div class="inner">--%>
+                                    <%--<ul><a href="javascript:;" type="title_">标题</a></ul>--%>
+                                    <%--<ul><a href="javascript:;" type="actors">演员</a></ul>--%>
+                                    <%--<ul><a href="javascript:;" type="director">导演</a></ul>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                            <%--<div id="movieSoBtn" class="btn subBtn">--%>
+                                <%--<input type="submit" value="Submit">--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</form>--%>
+                <%--</div>--%>
                 <%--<div class="rightFilter" id="filterMovieBtn">--%>
                     <%--<a title="高级筛选" href="javascript:;">高级筛选</a>--%>
                 <%--</div>--%>
