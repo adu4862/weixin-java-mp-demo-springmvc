@@ -449,18 +449,14 @@ Copyright 2016 Administrator. All rights reserved.
     });
 </script>
 <nav class="mui-bar mui-bar-tab" id="bar">
-    <a class="mui-tab-item mui-active"
-       href="http://new.9dcm.net/app/index.php?i=3&c=entry&m=fx_activity&do=home&ac=index&op=display">
-        <span class="mui-icon mui-ext-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
-    </a>
-    <a class="mui-tab-item" href="http://new.9dcm.net/app/index.php?i=3&amp;c=entry&amp;m=fx_activity&amp;do=records&amp;ac=records&amp;op=list">
+
+    <a class="mui-tab-item" href="http://localhost:8080/wechat/course_list">
         <span class="mui-icon mui-ext-icon mui-icon-activity"></span>
         <span class="mui-tab-label">报名</span>
     </a>
 
     <a class="mui-tab-item"
-       href="http://new.9dcm.net/app/index.php?i=3&c=entry&m=fx_activity&do=member&ac=home&op=display">
+       href="http://localhost:8080/my.jsp">
         <span class="mui-icon mui-ext-icon mui-icon-person"></span>
         <span class="mui-tab-label">我的</span>
     </a>
