@@ -22,6 +22,8 @@ public class CourseSoResultController {
     private String detail ="";
     private List<Map<String, Object>> list = new ArrayList<>();
 
+    //
+
     @ResponseBody
     @GetMapping(produces = "text/plain;charset=UTF-8")
     @RequestMapping(method = RequestMethod.GET)
