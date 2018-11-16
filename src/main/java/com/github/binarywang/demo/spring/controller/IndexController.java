@@ -10,7 +10,7 @@ public class IndexController {
     @GetMapping(produces = "text/plain;charset=utf-8")
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get() {
-        ModelAndView mav = new ModelAndView("Home");
+        ModelAndView mav = new ModelAndView("Home1");
         //将参数返回给页面
 
         return mav;
